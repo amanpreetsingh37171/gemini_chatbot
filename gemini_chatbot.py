@@ -5,12 +5,9 @@ import webbrowser
 if "chat_data" not in st.session_state:
     st.session_state.chat_data = []
 
-API_KEY = "AIzaSyDz7SyGVQ7Xe-2_kJfXR6bsT9BZAr4uvPU"
-
-genai.configure(api_key = API_KEY)
+genai.configure(api_key=st.secrets["GEMINI"]["api_key"])
 
 model = genai.GenerativeModel("gemini-2.5-flash")
-
 
 st.header("My Personal AI Chatbot")
 
