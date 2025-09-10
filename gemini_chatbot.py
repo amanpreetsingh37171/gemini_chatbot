@@ -7,11 +7,11 @@ if "chat_data" not in st.session_state:
     st.session_state.chat_data = []
 
 # --- Configure Gemini API safely ---
-if "GEMINI" not in st.secrets or "api_key" not in st.secrets["GEMINI"]:
+if "GEMINI_KEY" not in st.secrets or "api_key" not in st.secrets["GEMINI_KEY"]:
     st.error("❌ Gemini API key is missing. Please add it in Streamlit Cloud → Settings → Secrets.")
     st.stop()  # Stop execution if no key
 else:
-    genai.configure(api_key=st.secrets["GEMINI"]["api_key"])
+    genai.configure(api_key=st.secrets["GEMINI_KEY"]["api_key"])
     model = genai.GenerativeModel("gemini-2.5-flash")
 
 # --- UI ---
