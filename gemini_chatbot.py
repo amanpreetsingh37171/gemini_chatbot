@@ -5,6 +5,7 @@ import webbrowser
 if "chat_data" not in st.session_state:
     st.session_state.chat_data = []
 
+st.write("Secrets available in Cloud:", dict(st.secrets))
 genai.configure(api_key=st.secrets["GEMINI"]["api_key"])
 
 model = genai.GenerativeModel("gemini-2.5-flash")
